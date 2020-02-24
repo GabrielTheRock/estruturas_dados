@@ -140,6 +140,7 @@ public class Exercicio_10 {
 		for(int i = 0; i < 10; i++) {
 			ld.adicionaInicio(r.nextDouble() * 100);
 		}
+		ld.adicionaFinal(10);
 		ld.mostraLista();
 		System.out.println("Dados concatenados: " + ld.concatenaDados());
 	}
