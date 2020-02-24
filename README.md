@@ -1,2 +1,2 @@
 # estruturas_dados
-Exercícios da disciplina de Estruturas de Dados
+Exercícios da disciplina de Estruturas de Dados.
