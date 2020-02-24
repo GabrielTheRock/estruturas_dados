@@ -1,0 +1,1 @@
+O objetivo do artigo é apresentar as principais estruturas de dados com suas características e compará-las em relação a alguns fatores como velocidade de busca, deleção e inserção, por exemplo.
