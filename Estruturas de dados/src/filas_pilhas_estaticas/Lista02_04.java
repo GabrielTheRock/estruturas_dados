@@ -22,7 +22,7 @@ public class Lista02_04 {
 
 	
 	public static void main(String[] args) {
-		
+		String tijolo = "";
 	}
 
 }
