@@ -1,3 +1,9 @@
+/*
+ * Programador: Gabriel Rocha
+ * Objetivo: implementar uma classe de teste para a fila do exerício 01
+ * Data: 28/02/2020
+ */
+
 package filas_pilhas_estaticas;
 
 public class Lista02_02 {

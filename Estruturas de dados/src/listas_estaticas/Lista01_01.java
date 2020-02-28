@@ -1,11 +1,11 @@
 /*
-Problema: Carregar um vetor [100] real de valores de saldos.
+ * Programador: Gabriel Rocha
+ * Objetivo: Carregar um vetor [100] real de valores de saldos.
 Calcular e exibir:
 - Média dos saldos positivos entre 100 à 1000
 - Média geral dos saldos
 - Soma dos saldos negativos
-Programador: Gabriel Rocha
-Data: 08/02/2019
+ * Data: 08/02/2020
 */
 
 package listas_estaticas;
