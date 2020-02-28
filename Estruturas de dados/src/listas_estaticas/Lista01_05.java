@@ -7,11 +7,11 @@ Programador: Gabriel Rocha
 Data: 09/02/2020
 */
 
-package listas_encadeadas;
+package listas_estaticas;
 
 import java.util.Random;
 
-public class Exercicio_05 {
+public class Lista01_05 {
 	
 	public static void main(String[] args) {
 		int[][] mat = new int[4][4];

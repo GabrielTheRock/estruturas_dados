@@ -4,19 +4,18 @@
  * Problema: Implementar listas estáticas
  */
 
-package listas_encadeadas;
+package listas_estaticas;
 
 import java.util.Arrays;
-import java.util.Random;
 
-class Lista {
+class ListaString {
 	
-	public int[] dados;
+	private String[] dados;
 	private int tamanho;
-
-	public Lista() {
-		dados = new int[10];
-		Arrays.fill(dados, 0);
+	
+	public ListaString() {
+		dados = new String[10];
+		Arrays.fill(dados, "");
 		tamanho = 0;
 	}
 
@@ -27,7 +26,7 @@ class Lista {
 			return false;
 		}
 	}
-
+	
 	public boolean cheia() {
 		if(tamanho == dados.length) {
 			return true;
@@ -35,8 +34,8 @@ class Lista {
 			return false;
 		}
 	}
-
-	public void adicionaInicio(int n) {
+	
+	public void adicionaInicio(String n) {
 		if (!cheia()) {
 			tamanho++;
 			for(int i = tamanho - 1; i >= 1; i--) {
@@ -47,9 +46,9 @@ class Lista {
 			System.out.println("Erro ao adicionar! A lista está cheia!");
 		}
 	}
-
+	
 	public void removeInicio() {
-		int c = 0;
+		String c = "";
 		if (!vazia()) {
 			tamanho--;
 			for(int i = 0; i < tamanho; i++) {
@@ -60,8 +59,8 @@ class Lista {
 			System.out.println("Erro ao remover! A lista está vazia!");
 		}
 	}
-
-	public void adicionaFinal(int n) {
+	
+	public void adicionaFinal(String n) {
 		if(!cheia()) {
 			dados[tamanho] = n;
 			tamanho++;
@@ -69,9 +68,9 @@ class Lista {
 			System.out.println("Erro ao adicionar! A lista está cheia!");
 		}
 	}
-
-	public int removeFinal() {
-		int n = 0;
+	
+	public String removeFinal() {
+		String n = "";
 		if (!vazia()) {
 			tamanho--;
 			dados[tamanho] = n;
@@ -80,8 +79,8 @@ class Lista {
 		}
 		return n;
 	}
-
-	public void adicionaPos(int pos, int valor) {
+	
+	public void adicionaPos(int pos, String valor) {
 		if (dados.length == tamanho) {
 			System.out.println("Erro ao adiconar! A lista está cheia!");
 		} else if (pos < 0 || pos > tamanho) {
@@ -98,7 +97,7 @@ class Lista {
 			dados[pos] = valor;
 		}
 	}
-
+	
 	public void removePos(int pos) {
 		if (pos < 0 || pos >= tamanho) {
 			System.out.println("Erro ao remover! A lista está vazia!");
@@ -113,57 +112,34 @@ class Lista {
 			for(int i = pos; i < tamanho; i++) {
 				dados[i] = dados[i + 1];
 			}
-			dados[tamanho] = 0;
+			dados[tamanho] = "";
 		}
 	}
-
+	
 	public void mostraLista() {
 		System.out.println(Arrays.toString(dados));
 	}
-
+	
 	public String concatenaDados() {
 		StringBuilder sb = new StringBuilder();
-		for(int letra: dados) {
-			if(letra != 0) {
+		for(String letra: dados) {
+			if(!letra.equalsIgnoreCase("")) {
 				sb.append(letra);
 			}
 		}
 		return sb.toString();
 	}
-	
-	//Implementando metodoA
-	public void metodoA (int pos, int valor) {
-		if(dados.length == tamanho) {
-			System.out.println("ERRO!");
-		} else if(pos <= 0 || pos > tamanho + 1) {
-			System.out.println("Posição inválida!");
-		} else if(pos == 1) {
-			adicionaInicio(valor);
-		} else if(pos == tamanho) {
-			adicionaFinal(valor);
-		} else {
-			for(int i = tamanho; i >= pos; i--) {
-				dados[i] = dados[i - 1];
-				dados[pos - 1] = valor;
-				tamanho++;
-			}
-		}
-	}
 }
 
-public class Exercicio_06 {
+public class Lista01_09 {
 
 	public static void main(String[] args) {
-		Lista lista = new Lista();
-		Random r = new Random();
-		for(int i = 0; i < 8; i++) {
-			lista.adicionaInicio(r.nextInt(100) + 2);
-		}
-		System.out.println("Lista antes de ser submetida ao método A:");
-		lista.mostraLista();
-		lista.metodoA(4, 9999);
-		System.out.println("Lista após ser submetida ao método A com os parâmetros 4 e 9999:");
-		lista.mostraLista();
+		ListaString ls = new ListaString();
+		ls.adicionaInicio("Gabriel");
+		ls.adicionaFinal("Rocha");
+		ls.mostraLista();
+		ls.adicionaPos(1, "da");
+		ls.mostraLista();
 	}
 
 }

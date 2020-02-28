@@ -7,9 +7,9 @@ Programador: Gabriel Rocha
 Data: 08/02/2019
 */
 
-package listas_encadeadas;
+package listas_estaticas;
 
-public class Exercicio_02 {
+public class Lista01_02 {
 	
 	public static void main(String[] args) {
 		int[] vet = new int[5];

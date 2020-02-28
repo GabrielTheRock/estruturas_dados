@@ -6,11 +6,11 @@ Programador: Gabriel Rocha
 Data: 08/02/2020
 */
 
-package listas_encadeadas;
+package listas_estaticas;
 
 import java.util.Random;
 
-public class Exercicio_03 {
+public class Lista01_03 {
 	
 	public static void main(String[] args) {
 		Random r = new Random();

@@ -9,12 +9,12 @@ Programador: Gabriel Rocha
 Data: 09/02/2020
 */
 
-package listas_encadeadas;
+package listas_estaticas;
 
 import java.math.BigInteger;
 import java.util.Random;
 
-public class Exercicio_04 {
+public class Lista01_04 {
 	
 	public static void main(String[] args) {
 		Random r = new Random();

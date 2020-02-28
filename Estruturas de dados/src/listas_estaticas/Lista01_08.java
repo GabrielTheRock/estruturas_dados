@@ -4,19 +4,17 @@
  * Problema: Implementar listas estáticas
  */
 
-package listas_encadeadas;
+package listas_estaticas;
 
 import java.util.Arrays;
-import java.util.Random;
 
-class ListaDouble {
+class ListaChar {
 	
-	private double[] dados;
+	private char[] dados;
 	private int tamanho;
 	
-	public ListaDouble() {
-		dados = new double[10];
-		Arrays.fill(dados, 0);
+	public ListaChar() {
+		dados = new char[10];
 		tamanho = 0;
 	}
 
@@ -36,7 +34,7 @@ class ListaDouble {
 		}
 	}
 	
-	public void adicionaInicio(double n) {
+	public void adicionaInicio(char n) {
 		if (!cheia()) {
 			tamanho++;
 			for(int i = tamanho - 1; i >= 1; i--) {
@@ -49,7 +47,7 @@ class ListaDouble {
 	}
 	
 	public void removeInicio() {
-		double c = 0;
+		char c = 0;
 		if (!vazia()) {
 			tamanho--;
 			for(int i = 0; i < tamanho; i++) {
@@ -61,7 +59,7 @@ class ListaDouble {
 		}
 	}
 	
-	public void adicionaFinal(double n) {
+	public void adicionaFinal(char n) {
 		if(!cheia()) {
 			dados[tamanho] = n;
 			tamanho++;
@@ -70,8 +68,8 @@ class ListaDouble {
 		}
 	}
 	
-	public double removeFinal() {
-		double n = 0;
+	public int removeFinal() {
+		char n = 0;
 		if (!vazia()) {
 			tamanho--;
 			dados[tamanho] = n;
@@ -81,7 +79,7 @@ class ListaDouble {
 		return n;
 	}
 	
-	public void adicionaPos(int pos, double valor) {
+	public void adicionaPos(int pos, char valor) {
 		if (dados.length == tamanho) {
 			System.out.println("Erro ao adiconar! A lista está cheia!");
 		} else if (pos < 0 || pos > tamanho) {
@@ -123,7 +121,7 @@ class ListaDouble {
 	
 	public String concatenaDados() {
 		StringBuilder sb = new StringBuilder();
-		for(double letra: dados) {
+		for(char letra: dados) {
 			if(letra != 0) {
 				sb.append(letra);
 			}
@@ -132,16 +130,20 @@ class ListaDouble {
 	}
 }
 
-public class Exercicio_10 {
-	
+public class Lista01_08 {
+
 	public static void main(String[] args) {
-		ListaDouble ld = new ListaDouble();
-		Random r = new Random();
-		for(int i = 0; i < 10; i++) {
-			ld.adicionaInicio(r.nextDouble() * 100);
+		ListaChar lc = new ListaChar();
+		for(int i = 0; i < 5; i++) {
+			lc.adicionaInicio('a');
 		}
-		ld.adicionaFinal(10);
-		ld.mostraLista();
-		System.out.println("Dados concatenados: " + ld.concatenaDados());
+		for(int j = 0; j < 5; j++) {
+			lc.adicionaFinal('b');
+		}
+		lc.removeFinal();
+		lc.removeInicio();
+		lc.mostraLista();
+		System.out.println("Dados concatenados: " + lc.concatenaDados());
 	}
+
 }

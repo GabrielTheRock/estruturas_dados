@@ -8,11 +8,11 @@ Programador: Gabriel Rocha
 Data: 08/02/2019
 */
 
-package listas_encadeadas;
+package listas_estaticas;
 
 import java.util.Random;
 
-public class Exercicio_01 {
+public class Lista01_01 {
 	
 	public static void main(String[] args) {
 		Random r = new Random();

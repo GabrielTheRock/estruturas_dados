@@ -1,15 +1,21 @@
-package filas_pilhas;
+/*
+ * Programador: Gabriel Rocha
+ * Descrição: classe de uma fila circular estática
+ * Data: 28/02/2020
+ */
+
+package estruturas;
 
 import java.util.Arrays;
 
-class TesteFila {
+class FilaCircularEstatica {
 	
 	private int inicio;
 	private int fim;
 	private int tamanho;
 	private int[] dados;
 	
-	TesteFila() {
+	FilaCircularEstatica() {
 		inicio = 0;
 		fim = 0;
 		tamanho = 0;
@@ -40,6 +46,7 @@ class TesteFila {
 		}
 	}
 	
+	//dequeue
 	public int remove() {
 		int saiu = -1;
 		if(!vazia()) {
@@ -60,26 +67,4 @@ class TesteFila {
 	public void mostraFila() {
 		System.out.println(Arrays.toString(dados));
 	}
-}
-
-public class Lista02_02 {
-
-	public static void main(String[] args) {
-		TesteFila fila = new TesteFila();
-		for(int i = 1; i <= 10; i++) {
-			fila.adiciona(i);
-		}
-		System.out.println("Implementando uma fila circular...\n");
-		fila.adiciona(11111);
-		fila.mostraFila();
-		fila.remove();
-		fila.mostraFila();
-		fila.adiciona(700);
-		fila.mostraFila();
-		fila.remove();
-		fila.mostraFila();
-		fila.adiciona(800);
-		fila.mostraFila();
-	}
-
 }

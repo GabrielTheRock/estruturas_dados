@@ -1,14 +1,20 @@
-package filas_pilhas;
+/*
+ * Programador: Gabriel Rocha
+ * Descrição: classe de uma pilha estática
+ * Data: 28/02/2020
+ */
+
+package estruturas;
 
 import java.util.Arrays;
 
-class TestePilha {
+class PilhaEstatica {
 	
 	private int topo;
 	private int[] dados;
 	private int capacidadeMax;
 	
-	TestePilha(int capac) {
+	PilhaEstatica(int capac) {
 		topo = -1;
 		capacidadeMax = capac;
 		dados = new int[capacidadeMax];
@@ -46,22 +52,6 @@ class TestePilha {
 	}
 	
 	public void mostraPilha() {
-		System.out.println(Arrays.toString(dados));
+		System.out.println("Pilha --> " + Arrays.toString(dados));
 	}
-}
-
-public class Lista02_03 {
-
-	public static void main(String[] args) {
-		TestePilha pilha = new TestePilha(10);
-		for(int i = 1; i <= 10; i ++) {
-			pilha.empilha(i);
-		}
-		pilha.mostraPilha();
-		pilha.desempilha();
-		pilha.mostraPilha();
-		pilha.empilha(10000);
-		pilha.mostraPilha();
-	}
-
 }

@@ -4,16 +4,17 @@
  * Problema: Implementar listas estáticas
  */
 
-package listas_encadeadas;
+package listas_estaticas;
 
 import java.util.Arrays;
+import java.util.Random;
 
-class ListaInt {	
-
+class Lista_metodoA {
+	
 	public int[] dados;
 	private int tamanho;
 
-	public ListaInt() {
+	public Lista_metodoA() {
 		dados = new int[10];
 		Arrays.fill(dados, 0);
 		tamanho = 0;
@@ -129,15 +130,40 @@ class ListaInt {
 		}
 		return sb.toString();
 	}
+	
+	//Implementando metodoA
+	public void metodoA (int pos, int valor) {
+		if(dados.length == tamanho) {
+			System.out.println("ERRO!");
+		} else if(pos <= 0 || pos > tamanho + 1) {
+			System.out.println("Posição inválida!");
+		} else if(pos == 1) {
+			adicionaInicio(valor);
+		} else if(pos == tamanho) {
+			adicionaFinal(valor);
+		} else {
+			for(int i = tamanho; i >= pos; i--) {
+				dados[i] = dados[i - 1];
+				dados[pos - 1] = valor;
+				tamanho++;
+			}
+		}
+	}
 }
 
-public class Exercicio_07 {
+public class Lista01_06 {
 
 	public static void main(String[] args) {
-		ListaInt lista = new ListaInt();
-		for(int i = 0; i < 10; i++) {
-			lista.adicionaPos(i, i);
+		Lista_metodoA lista = new Lista_metodoA();
+		Random r = new Random();
+		for(int i = 0; i < 8; i++) {
+			lista.adicionaInicio(r.nextInt(100) + 2);
 		}
+		System.out.println("Lista antes de ser submetida ao método A:");
+		lista.mostraLista();
+		lista.metodoA(4, 9999);
+		System.out.println("Lista após ser submetida ao método A com os parâmetros 4 e 9999:");
 		lista.mostraLista();
 	}
+
 }

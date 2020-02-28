@@ -4,18 +4,19 @@
  * Problema: Implementar listas estáticas
  */
 
-package listas_encadeadas;
+package listas_estaticas;
 
 import java.util.Arrays;
+import java.util.Random;
 
-class ListaString {
+class ListaDouble {
 	
-	private String[] dados;
+	private double[] dados;
 	private int tamanho;
 	
-	public ListaString() {
-		dados = new String[10];
-		Arrays.fill(dados, "");
+	public ListaDouble() {
+		dados = new double[10];
+		Arrays.fill(dados, 0);
 		tamanho = 0;
 	}
 
@@ -35,7 +36,7 @@ class ListaString {
 		}
 	}
 	
-	public void adicionaInicio(String n) {
+	public void adicionaInicio(double n) {
 		if (!cheia()) {
 			tamanho++;
 			for(int i = tamanho - 1; i >= 1; i--) {
@@ -48,7 +49,7 @@ class ListaString {
 	}
 	
 	public void removeInicio() {
-		String c = "";
+		double c = 0;
 		if (!vazia()) {
 			tamanho--;
 			for(int i = 0; i < tamanho; i++) {
@@ -60,7 +61,7 @@ class ListaString {
 		}
 	}
 	
-	public void adicionaFinal(String n) {
+	public void adicionaFinal(double n) {
 		if(!cheia()) {
 			dados[tamanho] = n;
 			tamanho++;
@@ -69,8 +70,8 @@ class ListaString {
 		}
 	}
 	
-	public String removeFinal() {
-		String n = "";
+	public double removeFinal() {
+		double n = 0;
 		if (!vazia()) {
 			tamanho--;
 			dados[tamanho] = n;
@@ -80,7 +81,7 @@ class ListaString {
 		return n;
 	}
 	
-	public void adicionaPos(int pos, String valor) {
+	public void adicionaPos(int pos, double valor) {
 		if (dados.length == tamanho) {
 			System.out.println("Erro ao adiconar! A lista está cheia!");
 		} else if (pos < 0 || pos > tamanho) {
@@ -112,7 +113,7 @@ class ListaString {
 			for(int i = pos; i < tamanho; i++) {
 				dados[i] = dados[i + 1];
 			}
-			dados[tamanho] = "";
+			dados[tamanho] = 0;
 		}
 	}
 	
@@ -122,8 +123,8 @@ class ListaString {
 	
 	public String concatenaDados() {
 		StringBuilder sb = new StringBuilder();
-		for(String letra: dados) {
-			if(!letra.equalsIgnoreCase("")) {
+		for(double letra: dados) {
+			if(letra != 0) {
 				sb.append(letra);
 			}
 		}
@@ -131,15 +132,16 @@ class ListaString {
 	}
 }
 
-public class Exercicio_09 {
-
+public class Lista01_10 {
+	
 	public static void main(String[] args) {
-		ListaString ls = new ListaString();
-		ls.adicionaInicio("Gabriel");
-		ls.adicionaFinal("Rocha");
-		ls.mostraLista();
-		ls.adicionaPos(1, "da");
-		ls.mostraLista();
+		ListaDouble ld = new ListaDouble();
+		Random r = new Random();
+		for(int i = 0; i < 10; i++) {
+			ld.adicionaInicio(r.nextDouble() * 100);
+		}
+		ld.adicionaFinal(10);
+		ld.mostraLista();
+		System.out.println("Dados concatenados: " + ld.concatenaDados());
 	}
-
 }
