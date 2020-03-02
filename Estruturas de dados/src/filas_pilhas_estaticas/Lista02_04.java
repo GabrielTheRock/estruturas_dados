@@ -24,7 +24,7 @@ class Livro {
 	private int qntExem;
 	
 	Livro() {
-		titulo = "";
+		titulo = "vazio";
 		qntExem = 0;
 	}
 	
