@@ -25,6 +25,10 @@ public class ListaLigada {
 		inicio = null;
 	}
 	
+	public void adicionaInicio() {
+		
+	}
+	
 	public void adicionaFinal(int n) {
 		if (inicio == null) {
 			No no = new No(n);
