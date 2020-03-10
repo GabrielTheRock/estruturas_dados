@@ -1,17 +1,22 @@
 package estruturas;
 
-public class TESTES {
+import java.util.Random;
 
+public class TESTES {
+	
 	public static void main(String[] args) {
-		ListaEstatica lista = new ListaEstatica(10);
-		for(int i = 1; i <= 10; i++) {
-			lista.adicionaPos(i, i);
+		Random r = new Random();
+		ListaLigada ll = new ListaLigada();
+		for (int i = 0; i < 10; i++) {
+			ll.adicionaFinal(r.nextInt(99) + 1);
 		}
-		lista.mostraLista();
-		lista.removePos(5);
-		lista.mostraLista();
-		lista.removePos(1);
-		lista.mostraLista();
+		ll.mostraLista();
+		ll.removeFinal();
+		ll.mostraLista();
+		ll.removeFinal();
+		ll.mostraLista();
+		ll.adicionaFinal(111);
+		ll.mostraLista();
 	}
 
 }
