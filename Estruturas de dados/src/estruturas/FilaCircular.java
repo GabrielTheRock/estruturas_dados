@@ -8,22 +8,22 @@ package estruturas;
 
 import java.util.Arrays;
 
-class FilaCircularEstatica {
+public class FilaCircular {
 	
 	private int inicio;
 	private int fim;
 	private int tamanho;
 	private int[] dados;
 	
-	FilaCircularEstatica() {
+	public FilaCircular(int lim) {
 		inicio = 0;
 		fim = 0;
 		tamanho = 0;
-		dados = new int[10];
+		dados = new int[lim];
 	}
 	
 	private boolean cheia() {
-		return (tamanho == 10);
+		return (tamanho == dados.length);
 	}
 	
 	private boolean vazia() {
@@ -34,37 +34,37 @@ class FilaCircularEstatica {
 	public void adiciona(int n) {
 		if(!cheia()) {
 			tamanho++;
-			if(fim == tamanho - 1) {
+			if (fim == dados.length - 1) {
+				dados[fim] = n;
 				fim = 0;
-				dados[fim] = n;
 			} else {
-				fim++;
 				dados[fim] = n;
+				fim++;
 			}
 		} else {
-			System.out.println("Erro ao adicionar! A fila está cheia!");
+			System.err.println("Erro ao adicionar! A fila está cheia!");
 		}
 	}
 	
-	//dequeue
 	public int remove() {
-		int saiu = -1;
-		if(!vazia()) {
-			saiu = dados[inicio];
-			dados[inicio] = 0;
+		int r = -1;
+		if (vazia()) {
+			System.err.println("Erro ao remover! A fila está vazia!");
+		} else if (inicio == dados.length - 1) {
 			tamanho--;
-			if(inicio == tamanho - 1) {
-				inicio = 0;
-			} else {
-				inicio++;
-			}
+			r = dados[inicio];
+			dados[inicio] = 0;
+			inicio = 0;
 		} else {
-			System.out.println("Erro ao remover! A fila está vazia!");
+			tamanho--;
+			r = dados[inicio];
+			dados[inicio] = 0;
+			inicio++;
 		}
-		return saiu;
+		return r;
 	}
 	
 	public void mostraFila() {
-		System.out.println(Arrays.toString(dados));
+		System.out.println("Fila circular --> " + Arrays.toString(dados));
 	}
 }

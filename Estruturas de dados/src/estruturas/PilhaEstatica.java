@@ -8,7 +8,7 @@ package estruturas;
 
 import java.util.Arrays;
 
-class PilhaEstatica {
+public class PilhaEstatica {
 	
 	private int topo;
 	private int[] dados;

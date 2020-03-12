@@ -9,7 +9,7 @@ public class FilaCircular {
 	private int tamanho;
 	private int[] dados;
 	
-	FilaCircular(int lim) {
+	public FilaCircular(int lim) {
 		inicio = 0;
 		fim = 0;
 		tamanho = 0;
@@ -17,7 +17,7 @@ public class FilaCircular {
 	}
 	
 	private boolean cheia() {
-		return (tamanho == 10);
+		return (tamanho == dados.length);
 	}
 	
 	private boolean vazia() {
@@ -28,33 +28,34 @@ public class FilaCircular {
 	public void adiciona(int n) {
 		if(!cheia()) {
 			tamanho++;
-			if(fim == tamanho - 1) {
+			if (fim == dados.length - 1) {
+				dados[fim] = n;
 				fim = 0;
-				dados[fim] = n;
 			} else {
-				fim++;
 				dados[fim] = n;
+				fim++;
 			}
 		} else {
-			System.out.println("Erro ao adicionar! A fila está cheia!");
+			System.err.println("Erro ao adicionar! A fila está cheia!");
 		}
 	}
 	
 	public int remove() {
-		int saiu = -1;
-		if(!vazia()) {
-			saiu = dados[inicio];
-			dados[inicio] = 0;
+		int r = -1;
+		if (vazia()) {
+			System.err.println("Erro ao remover! A fila está vazia!");
+		} else if (inicio == dados.length - 1) {
 			tamanho--;
-			if(inicio == tamanho - 1) {
-				inicio = 0;
-			} else {
-				inicio++;
-			}
+			r = dados[inicio];
+			dados[inicio] = 0;
+			inicio = 0;
 		} else {
-			System.out.println("Erro ao remover! A fila está vazia!");
+			tamanho--;
+			r = dados[inicio];
+			dados[inicio] = 0;
+			inicio++;
 		}
-		return saiu;
+		return r;
 	}
 	
 	public void mostraFila() {

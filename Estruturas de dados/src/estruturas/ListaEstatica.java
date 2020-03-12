@@ -8,7 +8,7 @@ package estruturas;
 
 import java.util.Arrays;
 
-class ListaEstatica {
+public class ListaEstatica {
 	
 	public int[] dados;
 	private int tamanho;

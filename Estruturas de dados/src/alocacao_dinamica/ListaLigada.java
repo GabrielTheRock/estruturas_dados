@@ -4,7 +4,7 @@
  * Data: 10/03/2020
  */
 
-package estruturas;
+package alocacao_dinamica;
 
 class No {
 	
