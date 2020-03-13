@@ -2,18 +2,19 @@ package estruturas;
 
 import java.util.Arrays;
 
-public class FilaEstatica {
+public class FilaEstatica <T> {
 	
 	private int tamanho;
 	private int fim;
-	private int[] dados;
+	private T[] dados;
 	private int tamMaximo;
 	
+	@SuppressWarnings("unchecked")
 	FilaEstatica(int lim) {
 		tamanho = 0;
 		fim = -1;
 		tamMaximo = lim;
-		dados = new int[lim];
+		dados = (T[]) new Object[lim];
 	}
 	
 	private boolean cheia() {
@@ -25,7 +26,7 @@ public class FilaEstatica {
 	}
 	
 	//enqueue
-	public void adiciona(int n) {
+	public void adiciona(T n) {
 		if(!cheia()) {
 			tamanho++;
 			fim++;
@@ -36,15 +37,15 @@ public class FilaEstatica {
 	}
 	
 	//dequeue
-	public int remove() {
-		int r = -1;;
+	public T remove() {
+		T r = null;
 		if(!vazia()) {
 			tamanho--;
 			r = dados[0];
 			for(int i = 0; i < tamanho; i++) {
 				dados[i] = dados[i + 1];
 			}
-			dados[fim] = 0;
+			dados[fim] = null;
 			fim--;
 		} else {
 			System.out.println("Erro ao remover! A fila está vazia!");

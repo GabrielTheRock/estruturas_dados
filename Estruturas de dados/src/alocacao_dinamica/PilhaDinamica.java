@@ -6,37 +6,35 @@
 
 package alocacao_dinamica;
 
-public class PilhaDinamica {
+public class PilhaDinamica <T> {
 	
-	private No inicio;
+	private No<T> inicio;
 	
 	public PilhaDinamica() {
 		inicio = null;
 	}
 	
-	public void enqueue(int n) {
+	public void enqueue(T n) {
 		if (inicio == null) {
-			No aux = new No(n);
+			No<T> aux = new No<T>(n);
 			inicio = aux;
 		} else {
-			No aux = inicio;
+			No<T> aux = inicio;
 			while (aux.prox != null) {
 				aux = aux.prox;
 			}
-			No no = new No(n);
+			No<T> no = new No<T>(n);
 			aux.prox = no;
 		}
 	}
 	
-	public int dequeue() {
-		int r = -1;
+	public T dequeue() {
+		T r = null;
 		if (inicio == null) {
 			System.err.println("Erro ao remover! A pilha está vazia!");
-		} else if (inicio.prox == null) {
-			inicio = null;
 		} else {
-			No pen = inicio;
-			No ult = inicio;
+			No<T> pen = inicio;
+			No<T> ult = inicio;
 			while (ult.prox != null) {
 				pen = ult;
 				ult = ult.prox;
@@ -50,7 +48,7 @@ public class PilhaDinamica {
 	public void mostraPilha() {
 		if (inicio != null) {
 			StringBuilder sb = new StringBuilder();
-			No aux = inicio;
+			No<T> aux = inicio;
 			sb.append("Pilha dinâmica --> [");
 			while (aux != null) {
 				sb.append(aux.dado + ", ");

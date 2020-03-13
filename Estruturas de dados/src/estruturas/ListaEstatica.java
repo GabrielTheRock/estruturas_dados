@@ -8,15 +8,15 @@ package estruturas;
 
 import java.util.Arrays;
 
-public class ListaEstatica {
+public class ListaEstatica <T> {
 	
-	public int[] dados;
+	public T[] dados;
 	private int tamanho;
 	private int fim;
 
+	@SuppressWarnings("unchecked")
 	public ListaEstatica(int tamMax) {
-		dados = new int[tamMax];
-		Arrays.fill(dados, 0);
+		dados = (T[]) new Object[tamMax];
 		fim = -1;
 		tamanho = 0;
 	}
@@ -37,7 +37,7 @@ public class ListaEstatica {
 		}
 	}
 
-	public void adicionaInicio(int n) {
+	public void adicionaInicio(T n) {
 		if (!cheia()) {
 			tamanho++;
 			fim++;
@@ -50,8 +50,8 @@ public class ListaEstatica {
 		}
 	}
 
-	public int removeInicio() {
-		int c = -1;
+	public T removeInicio() {
+		T c = null;
 		if (!vazia()) {
 			c = dados[0];
 			tamanho--;
@@ -59,14 +59,14 @@ public class ListaEstatica {
 			for(int i = 0; i <= fim; i++) {
 				dados[i] = dados[i + 1];
 			}
-			dados[tamanho] = 0;
+			dados[tamanho] = null;
 		} else {
 			System.out.println("Erro ao remover! A lista está vazia!");
 		}
 		return c;
 	}
 
-	public void adicionaFinal(int n) {
+	public void adicionaFinal(T n) {
 		if(!cheia()) {
 			tamanho++;
 			fim++;
@@ -76,12 +76,12 @@ public class ListaEstatica {
 		}
 	}
 
-	public int removeFinal() {
-		int n = -1;
+	public T removeFinal() {
+		T n = null;
 		if (!vazia()) {
 			tamanho--;
 			n = dados[fim];
-			dados[fim] = 0;
+			dados[fim] = null;
 			fim--;
 		} else {
 			System.out.println("Erro ao remover! A lista está vazia!");
@@ -89,7 +89,7 @@ public class ListaEstatica {
 		return n;
 	}
 
-	public void adicionaPos(int pos, int n) {
+	public void adicionaPos(int pos, T n) {
 		if(!cheia()) {
 			if(pos == 1) {
 				adicionaInicio(n);
@@ -110,8 +110,8 @@ public class ListaEstatica {
 		}
 	}
 
-	public int removePos(int pos) {
-		int n = -1;
+	public T removePos(int pos) {
+		T n = null;
 		if(!vazia()) {
 			if(pos == 1) {
 				n = removeInicio();
@@ -126,7 +126,7 @@ public class ListaEstatica {
 				for(int i = pos - 1; i <= fim; i++) {
 					dados[i] = dados[i + 1];
 				}
-				dados[tamanho] = 0;
+				dados[tamanho] = null;
 			}
 		} else {
 			System.out.println("Erro ao adicionar! A lista está vazia!");

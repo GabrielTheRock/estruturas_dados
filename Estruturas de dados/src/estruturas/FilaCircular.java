@@ -8,18 +8,19 @@ package estruturas;
 
 import java.util.Arrays;
 
-public class FilaCircular {
+public class FilaCircular <T> {
 	
 	private int inicio;
 	private int fim;
 	private int tamanho;
-	private int[] dados;
+	private T[] dados;
 	
+	@SuppressWarnings("unchecked")
 	public FilaCircular(int lim) {
 		inicio = 0;
 		fim = 0;
 		tamanho = 0;
-		dados = new int[lim];
+		dados = (T[]) new Object[lim];
 	}
 	
 	private boolean cheia() {
@@ -31,7 +32,7 @@ public class FilaCircular {
 	}
 	
 	//enqueue
-	public void adiciona(int n) {
+	public void adiciona(T n) {
 		if(!cheia()) {
 			tamanho++;
 			if (fim == dados.length - 1) {
@@ -46,19 +47,19 @@ public class FilaCircular {
 		}
 	}
 	
-	public int remove() {
-		int r = -1;
+	public T remove() {
+		T r = null;
 		if (vazia()) {
 			System.err.println("Erro ao remover! A fila está vazia!");
 		} else if (inicio == dados.length - 1) {
 			tamanho--;
 			r = dados[inicio];
-			dados[inicio] = 0;
+			dados[inicio] = null;
 			inicio = 0;
 		} else {
 			tamanho--;
 			r = dados[inicio];
-			dados[inicio] = 0;
+			dados[inicio] = null;
 			inicio++;
 		}
 		return r;

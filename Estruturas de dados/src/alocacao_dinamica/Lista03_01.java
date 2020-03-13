@@ -11,7 +11,7 @@ import estruturas.FilaCircular;
 public class Lista03_01 {
 
 	public static void main(String[] args) {
-		FilaCircular fc = new FilaCircular(5);
+		FilaCircular<Integer> fc = new FilaCircular<Integer>(5);
 		fc.adiciona(19);
 		fc.mostraFila();
 		fc.adiciona(20);

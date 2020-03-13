@@ -8,16 +8,17 @@ package estruturas;
 
 import java.util.Arrays;
 
-public class PilhaEstatica {
+public class PilhaEstatica <T> {
 	
 	private int topo;
-	private int[] dados;
+	private T[] dados;
 	private int capacidadeMax;
 	
+	@SuppressWarnings("unchecked")
 	PilhaEstatica(int capac) {
 		topo = -1;
 		capacidadeMax = capac;
-		dados = new int[capacidadeMax];
+		dados = (T[]) new Object[capacidadeMax];
 	}
 	
 	private boolean cheia() {
@@ -29,7 +30,7 @@ public class PilhaEstatica {
 	}
 	
 	//push
-	public void empilha(int n) {
+	public void empilha(T n) {
 		if(!cheia()) {
 			topo++;
 			dados[topo] = n;
@@ -39,11 +40,11 @@ public class PilhaEstatica {
 	}
 	
 	//pop
-	public int desempilha() {
-		int saiu = -1;
+	public T desempilha() {
+		T saiu = null;
 		if(!vazia()) {
 			saiu = dados[topo];
-			dados[topo] = 0;
+			dados[topo] = null;
 			topo--;
 		} else {
 			System.out.println("Erro ao remover! A pilha está vazia!");

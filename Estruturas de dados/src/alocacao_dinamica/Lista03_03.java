@@ -12,7 +12,7 @@ public class Lista03_03 {
 
 	public static void main(String[] args) {
 		Random r = new Random();
-		PilhaDinamica pd = new PilhaDinamica();
+		PilhaDinamica<Integer> pd = new PilhaDinamica<Integer>();
 		for (int i = 0; i < 10; i++) {
 			pd.enqueue(r.nextInt(99) + 1);
 		}

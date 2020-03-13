@@ -6,9 +6,9 @@ public class TESTES {
 	
 	public static void main(String[] args) {
 		Random r = new Random();
-		ListaLigada ll = new ListaLigada();
+		ListaLigada<Integer> ll = new ListaLigada<Integer>();
 		for (int i = 0; i < 10; i++) {
-			ll.adicionaInicio(r.nextInt(999) + 1);
+			ll.adicionaInicio(r.nextInt(999) + 100);
 		}
 		ll.mostraLista();
 		ll.removeFinal();

@@ -6,38 +6,38 @@
 
 package estruturas;
 
-class No {
+class No <T> {
 	
-	public int dado;
-	public No prox;
+	public T dado;
+	public No<T> prox;
 	
-	public No(int n) {
+	public No(T n) {
 		dado = n;
 		prox = null;
 	}
 }
 
-public class ListaLigada {
+public class ListaLigada <T> {
 	
-	private No inicio;
+	private No<T> inicio;
 	
 	public ListaLigada() {
 		inicio = null;
 	}
 	
-	public void adicionaInicio(int n) {
+	public void adicionaInicio(T n) {
 		if (inicio == null) {
-			No no = new No(n);
+			No<T> no = new No<T>(n);
 			inicio = no;
 		} else {
-			No aux = new No(n);
+			No<T> aux = new No<T>(n);
 			aux.prox = inicio;
 			inicio = aux;
 		}
 	}
 	
-	public int removeInicio() {
-		int r = -1;
+	public T removeInicio() {
+		T r = null;
 		if (inicio == null) {
 			System.err.println("Erro ao remover! A lista está vazia!");
 		} else {
@@ -47,30 +47,30 @@ public class ListaLigada {
 		return r;
 	}
 	
-	public void adicionaFinal(int n) {
+	public void adicionaFinal(T n) {
 		if (inicio == null) {
-			No no = new No(n);
+			No<T> no = new No<T>(n);
 			inicio = no;
 		} else {
-			No aux = inicio;
+			No<T> aux = inicio;
 			while (aux.prox != null) {
 				aux = aux.prox;
 			}
-			No no = new No(n);
+			No<T> no = new No<T>(n);
 			aux.prox = no;
 		}
 	}
 	
-	public int removeFinal() {
-		int r = -1;
+	public T removeFinal() {
+		T r = null;
 		if (inicio == null) {
 			System.err.println("Erro ao remover! A lista está vazia!");
 		} else if (inicio.prox == null) {
 			r = inicio.dado;
 			inicio = null;
 		} else {
-			No aux1 = inicio;
-			No aux2 = inicio;
+			No<T> aux1 = inicio;
+			No<T> aux2 = inicio;
 			while (aux1.prox != null) {
 				aux2 = aux1;
 				aux1 = aux1.prox;
@@ -84,7 +84,7 @@ public class ListaLigada {
 	public void mostraLista() {
 		if (inicio != null) {
 			StringBuilder sb = new StringBuilder();
-			No aux = inicio;
+			No<T> aux = inicio;
 			sb.append("Lista ligada --> [");
 			while (aux != null) {
 				sb.append(aux.dado + ", ");
