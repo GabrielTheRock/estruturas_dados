@@ -15,6 +15,9 @@ public class TESTES {
 		ll.mostraLista();
 		ll.removeInicio();
 		ll.mostraLista();
+		ll.adicionaPos(4, 8888);
+		ll.mostraLista();
+		ll.removePos(10);
 	}
 
 }

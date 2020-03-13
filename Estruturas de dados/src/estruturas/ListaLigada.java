@@ -25,15 +25,14 @@ public class ListaLigada <T> {
 		inicio = null;
 	}
 	
+	private boolean vazia() {
+		return inicio == null;
+	}
+	
 	public void adicionaInicio(T n) {
-		if (inicio == null) {
-			No<T> no = new No<T>(n);
-			inicio = no;
-		} else {
-			No<T> aux = new No<T>(n);
-			aux.prox = inicio;
-			inicio = aux;
-		}
+		No<T> aux = new No<T>(n);
+		aux.prox = inicio;
+		inicio = aux;
 	}
 	
 	public T removeInicio() {
@@ -43,6 +42,44 @@ public class ListaLigada <T> {
 		} else {
 			r = inicio.dado;
 			inicio = inicio.prox;
+		}
+		return r;
+	}
+	
+	public void adicionaPos(int pos, T n) {
+		No<T> add = new No<T>(n);
+		if (pos == 1) {
+			adicionaInicio(n);
+		} else {
+			int cont = 1;
+			No<T> aux = inicio;
+			while (aux.prox != null && cont < pos - 1) {
+				aux = aux.prox;
+				cont++;
+			}
+			if (cont == pos - 1) {
+				add.prox = aux.prox;
+				aux.prox = add;
+			} else {
+				System.err.println("Erro ao adicionar! Posição inválida!");
+			}
+		}
+	}
+	
+	public T removePos(int pos) {
+		T r = null;
+		if (vazia()) {
+			System.err.println("Erro ao remover! A lista está vazia!");
+		} else if (pos == 1) {
+			removeInicio();
+		} else {
+			int cont = 1;
+			No<T> aux = inicio;
+			while (aux.prox != null) {
+				aux = aux.prox;
+				cont++;
+			}
+			System.out.println(cont);
 		}
 		return r;
 	}
