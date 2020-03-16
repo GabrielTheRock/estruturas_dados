@@ -1,28 +1,29 @@
 /*
  * Programador: Gabriel Rocha
- * Objetivo: implementar uma lista ligada de caracteres
- * Data: 13/03/2020
+ * Objetivo: implementar uma lista dinâmica de temperaturas
+ * Data: 16/03/2020
  */
 
 package alocacao_dinamica;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
-public class Lista03_05 {
+public class Lista03_06 {
 
 	public static void main(String[] args) {
+		DecimalFormat df = new DecimalFormat("0.#");
 		Random r = new Random();
-		ListaLigada<Character> ll = new ListaLigada<Character>();
-		char[] carac = "abcdefghijklmnopqrstuvwxyz1234567890".toCharArray();
+		ListaLigada<String> ll = new ListaLigada<String>();
 		for (int i = 0; i < 10; i++) {
-			ll.adicionaFinal(carac[r.nextInt(36)]);
+			ll.adicionaFinal(df.format(r.nextDouble() * 100) + " °C");
 		}
 		ll.mostraLista();
-		ll.adicionaPos(6, 'X');
+		ll.adicionaPos(6, "X");
 		ll.mostraLista();
-		ll.adicionaInicio('X');
+		ll.adicionaInicio("X");
 		ll.mostraLista();
-		ll.adicionaFinal('X');
+		ll.adicionaFinal("X");
 		ll.mostraLista();
 		ll.removePos(7);
 		ll.mostraLista();

@@ -8,7 +8,7 @@ package alocacao_dinamica;
 
 public class PilhaDinamica <T> {
 	
-	private No<T> inicio;
+	protected No<T> inicio;
 	
 	public PilhaDinamica() {
 		inicio = null;

@@ -19,7 +19,7 @@ class No <T> {
 
 public class ListaLigada <T> {
 	
-	private No<T> inicio;
+	public No<T> inicio;
 	
 	public ListaLigada() {
 		inicio = null;
@@ -74,12 +74,20 @@ public class ListaLigada <T> {
 			removeInicio();
 		} else {
 			int cont = 1;
-			No<T> aux = inicio;
-			while (aux.prox != null) {
-				aux = aux.prox;
+			No<T> aux1 = inicio;
+			No<T> aux2 = inicio;
+			while (aux2.prox != null && cont < pos) {
+				aux1 = aux2;
+				aux2 = aux2.prox;
 				cont++;
 			}
-			System.out.println(cont);
+			if (cont < pos) {
+				System.err.println("Erro ao adicionar! Posição inválida!");
+			} else {
+				r = aux2.dado;
+				aux1.prox = aux2.prox;
+				aux2 = null;
+			}
 		}
 		return r;
 	}
@@ -119,8 +127,8 @@ public class ListaLigada <T> {
 	}
 	
 	public void mostraLista() {
+		StringBuilder sb = new StringBuilder();
 		if (inicio != null) {
-			StringBuilder sb = new StringBuilder();
 			No<T> aux = inicio;
 			sb.append("Lista ligada --> [");
 			while (aux != null) {

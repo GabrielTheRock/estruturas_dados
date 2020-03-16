@@ -8,8 +8,8 @@ package alocacao_dinamica;
 
 class No <T> {
 	
-	public T dado;
-	public No<T> prox;
+	protected T dado;
+	protected No<T> prox;
 	
 	public No(T n) {
 		dado = n;
@@ -19,21 +19,20 @@ class No <T> {
 
 public class ListaLigada <T> {
 	
-	private No<T> inicio;
+	protected No<T> inicio;
 	
 	public ListaLigada() {
 		inicio = null;
 	}
 	
+	private boolean vazia() {
+		return inicio == null;
+	}
+	
 	public void adicionaInicio(T n) {
-		if (inicio == null) {
-			No<T> no = new No<T>(n);
-			inicio = no;
-		} else {
-			No<T> aux = new No<T>(n);
-			aux.prox = inicio;
-			inicio = aux;
-		}
+		No<T> aux = new No<T>(n);
+		aux.prox = inicio;
+		inicio = aux;
 	}
 	
 	public T removeInicio() {
@@ -43,6 +42,52 @@ public class ListaLigada <T> {
 		} else {
 			r = inicio.dado;
 			inicio = inicio.prox;
+		}
+		return r;
+	}
+	
+	public void adicionaPos(int pos, T n) {
+		No<T> add = new No<T>(n);
+		if (pos == 1) {
+			adicionaInicio(n);
+		} else {
+			int cont = 1;
+			No<T> aux = inicio;
+			while (aux.prox != null && cont < pos - 1) {
+				aux = aux.prox;
+				cont++;
+			}
+			if (cont == pos - 1) {
+				add.prox = aux.prox;
+				aux.prox = add;
+			} else {
+				System.err.println("Erro ao adicionar! Posição inválida!");
+			}
+		}
+	}
+	
+	public T removePos(int pos) {
+		T r = null;
+		if (vazia()) {
+			System.err.println("Erro ao remover! A lista está vazia!");
+		} else if (pos == 1) {
+			removeInicio();
+		} else {
+			int cont = 1;
+			No<T> aux1 = inicio;
+			No<T> aux2 = inicio;
+			while (aux2.prox != null && cont < pos) {
+				aux1 = aux2;
+				aux2 = aux2.prox;
+				cont++;
+			}
+			if (cont < pos) {
+				System.err.println("Erro ao adicionar! Posição inválida!");
+			} else {
+				r = aux2.dado;
+				aux1.prox = aux2.prox;
+				aux2 = null;
+			}
 		}
 		return r;
 	}
@@ -82,8 +127,8 @@ public class ListaLigada <T> {
 	}
 	
 	public void mostraLista() {
+		StringBuilder sb = new StringBuilder();
 		if (inicio != null) {
-			StringBuilder sb = new StringBuilder();
 			No<T> aux = inicio;
 			sb.append("Lista ligada --> [");
 			while (aux != null) {
