@@ -1,4 +1,4 @@
-package estruturas;
+package recursividade;
 
 public class FilaDinamica <T> {
 	
@@ -13,7 +13,7 @@ public class FilaDinamica <T> {
 	}
 	
 	//adiciona elemento
-	public void push(T n) {
+	public void enqueue(T n) {
 		if (vazia()) {
 			No<T> elemento = new No<T>(n);
 			inicio = elemento;
@@ -28,7 +28,7 @@ public class FilaDinamica <T> {
 	}
 	
 	//remove elemento
-	public T pop() {
+	public T dequeue() {
 		T r = null;
 		if (vazia()) {
 			System.err.println("Erro ao remover! A fila está vazia!");

@@ -4,7 +4,7 @@
  * Data: 12/03/2020 
  */
 
-package estruturas;
+package recursividade;
 
 public class PilhaDinamica <T> {
 	
@@ -14,7 +14,7 @@ public class PilhaDinamica <T> {
 		inicio = null;
 	}
 	
-	public void enqueue(T n) {
+	public void push(T n) {
 		if (inicio == null) {
 			No<T> aux = new No<T>(n);
 			inicio = aux;
@@ -28,7 +28,7 @@ public class PilhaDinamica <T> {
 		}
 	}
 	
-	public T dequeue() {
+	public T pop() {
 		T r = null;
 		if (inicio == null) {
 			System.err.println("Erro ao remover! A pilha está vazia!");

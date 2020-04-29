@@ -8,20 +8,18 @@ package recursividade;
 
 import java.util.Random;
 
-public class Lista04_01 {
-	
+public class Lista04_02 {
+
 	static Random r = new Random();
 	
 	public static void main(String[] args) {
-		ListaLigadaRecursivaFuncionarios lista = new ListaLigadaRecursivaFuncionarios();
+		ListaLigadaRecursivaAlunos lista = new ListaLigadaRecursivaAlunos();
 		for (int i = 0; i < 10; i++) {
-			Funcionario f = new Funcionario();
-			f.setCpf(r.nextInt(9999));
-			f.setId(r.nextInt(100));
-			f.setRg(Integer.toString(r.nextInt(20000) + 10000));
-			f.setNome(geraString());
-			f.setDepar(geraString());
-			lista.adicionaInicio(f);
+			Aluno a = new Aluno();
+			a.setRa(r.nextInt(9999));
+			a.setNome(geraString());
+			a.setSemestre(r.nextInt(6) + 1);
+			lista.adicionaInicio(a);
 		}
 		lista.mostraLista();
 		lista.removePosicao(10);

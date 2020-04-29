@@ -6,6 +6,7 @@ public class Funcionario {
 	private int id;
 	private String rg;
 	private int cpf;
+	private String depar;
 	
 	public String getNome() {
 		return nome;
@@ -37,5 +38,13 @@ public class Funcionario {
 	
 	public void setCpf(int cpf) {
 		this.cpf = cpf;
+	}
+
+	public String getDepar() {
+		return depar;
+	}
+
+	public void setDepar(String depar) {
+		this.depar = depar;
 	}
 }

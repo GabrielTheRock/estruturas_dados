@@ -4,7 +4,7 @@
  * Data: 29/04/2020
  */
 
-package recursividade;
+package estruturas;
 
 public class ListaLigadaRecursiva<T> {
 	

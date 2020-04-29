@@ -1,6 +1,6 @@
 /*
  * Programador: Gabriel Rocha
- * Descrição: implementação de uma lista ligada usando métodos recursivos
+ * Descrição: implementação uma fila para os funcionários
  * Data: 29/04/2020
  */
 
@@ -8,12 +8,12 @@ package recursividade;
 
 import java.util.Random;
 
-public class Lista04_01 {
+public class Lista04_03 {
 	
 	static Random r = new Random();
 	
 	public static void main(String[] args) {
-		ListaLigadaRecursivaFuncionarios lista = new ListaLigadaRecursivaFuncionarios();
+		FilaDinamica<Funcionario> fd = new FilaDinamica<Funcionario>();
 		for (int i = 0; i < 10; i++) {
 			Funcionario f = new Funcionario();
 			f.setCpf(r.nextInt(9999));
@@ -21,13 +21,11 @@ public class Lista04_01 {
 			f.setRg(Integer.toString(r.nextInt(20000) + 10000));
 			f.setNome(geraString());
 			f.setDepar(geraString());
-			lista.adicionaInicio(f);
+			fd.enqueue(f);
 		}
-		lista.mostraLista();
-		lista.removePosicao(10);
-		lista.mostraLista();
-		lista.removeFinal();
-		lista.mostraLista();
+		fd.mostraFila();
+		fd.dequeue();
+		fd.mostraFila();
 	}
 	
 	static String geraString() {
