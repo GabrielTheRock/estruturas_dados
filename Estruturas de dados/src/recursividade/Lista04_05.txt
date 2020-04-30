@@ -1,0 +1,23 @@
+Algoritmo de busca binária: utiliza o conceito de "dividir para conquistar", ou seja, o número de comparações necessárias para se achar um elemento dentro de uma lista usando busca binária é significativamente menor do que quando se usa a busca sequencial. Na busca binária, a lista é dividida sempre ao meio na tentativa de achar o elemento e, para isso, é necessária que ela esteja em ordem crescente.
+
+Exemplo: encontrar o número 6 usando busca binária
+
+[0 1 2 3 (4) 5 6 7 8] --> 4 < 6, então busca na frente do 4
+
+[0 1 2 3 4 5 (6) 7 8] --> achou o 6
+
+Algoritmo de busca sequencial: comparar o número com cada elemento da lista até achá-lo.
+
+exemplo: encontrar o número 10 usando busca sequencial
+
+[(17) 34 56 73 98 10 12]
+
+[17 (34) 56 73 98 10 12]
+
+[17 34 (56) 73 98 10 12]
+
+[17 34 56 (73) 98 10 12]
+
+[17 34 56 73 (98) 10 12]
+
+[17 34 56 73 98 (10) 12] --> 6 comparações depois, o elemento foi encontrado
