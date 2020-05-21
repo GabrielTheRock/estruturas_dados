@@ -16,12 +16,12 @@ public class Lista03_04 {
 		int i = 0;
 		while (i < 10) {
 			i++;
-			fd.push(r.nextInt(999) + 100);
+			fd.enqueue(r.nextInt(999) + 100);
 		}
 		fd.mostraFila();
-		fd.push(98777);
+		fd.enqueue(98777);
 		fd.mostraFila();
-		fd.pop();
+		fd.dequeue();
 		fd.mostraFila();
 	}
 }

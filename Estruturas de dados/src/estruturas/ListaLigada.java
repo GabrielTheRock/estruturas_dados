@@ -6,17 +6,6 @@
 
 package estruturas;
 
-class No <T> {
-	
-	public T dado;
-	public No<T> prox;
-	
-	public No(T n) {
-		dado = n;
-		prox = null;
-	}
-}
-
 public class ListaLigada <T> {
 	
 	public No<T> inicio;

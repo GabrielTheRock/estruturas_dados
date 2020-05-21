@@ -10,14 +10,12 @@ import java.util.Arrays;
 
 public class FilaCircular <T> {
 	
-	private int inicio;
 	private int fim;
 	private int tamanho;
 	private T[] dados;
 	
 	@SuppressWarnings("unchecked")
 	public FilaCircular(int lim) {
-		inicio = 0;
 		fim = 0;
 		tamanho = 0;
 		dados = (T[]) new Object[lim];
@@ -32,7 +30,7 @@ public class FilaCircular <T> {
 	}
 	
 	//enqueue
-	public void adiciona(T n) {
+	public void enqueue(T n) {
 		if(!cheia()) {
 			tamanho++;
 			if (fim == dados.length - 1) {
@@ -47,20 +45,17 @@ public class FilaCircular <T> {
 		}
 	}
 	
-	public T remove() {
+	public T dequeue() {
 		T r = null;
-		if (vazia()) {
-			System.err.println("Erro ao remover! A fila está vazia!");
-		} else if (inicio == dados.length - 1) {
+		if(!vazia()) {
 			tamanho--;
-			r = dados[inicio];
-			dados[inicio] = null;
-			inicio = 0;
+			r = dados[0];
+			for(int i = 0; i < fim; i++) {
+				dados[i] = dados[i + 1];
+			}
+			fim--;
 		} else {
-			tamanho--;
-			r = dados[inicio];
-			dados[inicio] = null;
-			inicio++;
+			System.out.println("Erro ao remover! A fila está vazia!");
 		}
 		return r;
 	}

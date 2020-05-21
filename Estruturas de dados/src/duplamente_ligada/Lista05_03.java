@@ -1,29 +1,29 @@
-/*
- * Programador: Gabriel Rocha
- * Objetivo: implementar uma lista dinâmica de livros
- * Data: 16/03/2020
- */
-
-package alocacao_dinamica;
+package duplamente_ligada;
 
 import java.util.Random;
 
-public class Lista03_08 {
+import alocacao_dinamica.Livro;
+
+public class Lista05_03 {
 
 	public static void main(String[] args) {
-		ListaLivros ll = new ListaLivros();
-		FilaLivros fl = new FilaLivros();
-		PilhaLivros pl = new PilhaLivros();
+		ListaDuplamenteLigada<Livro> ldl = new ListaDuplamenteLigada<Livro>();
 		for (int i = 0; i < 10; i++) {
-			ll.adicionaFinal(geraLivros());
+			ldl.adicionaInicio(geraLivros());
 		}
-		ll.mostraLista();
-		fl.enqueue(ll.removeInicio());
-		fl.mostraFila();
-		pl.push(ll.removeFinal());
-		pl.mostraPilha();
+		ldl.mostraLista();
+		ldl.adicionaPos(5, geraLivros());
+		ldl.mostraLista();
+		ldl.removeInicio();
+		ldl.mostraLista();
+		ldl.adicionaFinal(geraLivros());
+		ldl.mostraLista();
+		ldl.removeFinal();
+		ldl.mostraLista();
+		ldl.removePos(5);
+		ldl.mostraLista();
 	}
-
+	
 	private static Livro geraLivros() {
 		Random r = new Random();
 		StringBuilder sb = new StringBuilder();

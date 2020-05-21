@@ -1,4 +1,4 @@
-package alocacao_dinamica;
+package estruturas;
 
 public class FilaDinamica <T> {
 	

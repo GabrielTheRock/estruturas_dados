@@ -12,27 +12,27 @@ public class Lista03_01 {
 
 	public static void main(String[] args) {
 		FilaCircular<Integer> fc = new FilaCircular<Integer>(5);
-		fc.adiciona(19);
+		fc.enqueue(19);
 		fc.mostraFila();
-		fc.adiciona(20);
+		fc.enqueue(20);
 		fc.mostraFila();
-		fc.adiciona(15);
+		fc.enqueue(15);
 		fc.mostraFila();
-		fc.remove();
+		fc.dequeue();
 		fc.mostraFila();
-		fc.remove();
+		fc.dequeue();
 		fc.mostraFila();
-		fc.adiciona(21);
+		fc.enqueue(21);
 		fc.mostraFila();
-		fc.adiciona(12);
+		fc.enqueue(12);
 		fc.mostraFila();
-		fc.adiciona(25);
+		fc.enqueue(25);
 		fc.mostraFila();
-		fc.remove();
+		fc.dequeue();
 		fc.mostraFila();
-		fc.remove();
+		fc.dequeue();
 		fc.mostraFila();
-		fc.remove();
+		fc.dequeue();
 		fc.mostraFila();
 	}
 }

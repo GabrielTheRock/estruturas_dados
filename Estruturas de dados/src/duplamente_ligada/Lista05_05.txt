@@ -1,0 +1,1 @@
+Será um programa de compra e vendas de produtos eletrônicos. Nele, haverá compradores e vendedores. O sistema irá gerar, para cada compra, uma nota fiscal correspondente e terá a opção de mostrar ao usuário suas compras e suas vendas. Utilizaremos pilhas, filas e listas no sistema.

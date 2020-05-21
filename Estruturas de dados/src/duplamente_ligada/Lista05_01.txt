@@ -1,0 +1,119 @@
+				Lista
+
+//estrutura de dados na qual podem ser adicionados vários elementos
+
+adicionar no início
+adicionar em uma posição específica
+adicionar no fim
+remover do início
+remover de uma posição específica
+remover do fim
+ordenar elementos
+verificar se a lista está cheia
+verificar se a lista está vazia
+
+Lista --> [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Lista --> [10, 9, 8, 7, 0, 5, 4, 3, 2, 1]
+Lista --> [0, 9, 8, 7, 0, 5, 4, 3, 2, 1]
+Lista --> [9999, 9, 8, 7, 0, 5, 4, 3, 2, 1]
+Lista --> [9999, 9, 8, 7, 0, 5, 4, 3, 2, 8888]
+==============================================================================
+				Lista circular
+
+//semelhante a lista comum, mas ocorre um rearranjo dos elementos
+
+adicionar no início
+adicionar em uma posição específica
+adicionar no fim
+remover do início
+remover de uma posição específica
+remover do fim
+verificar se a lista está cheia
+verificar se a lista está vazia
+
+Lista circular--> [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Lista circular --> [10, 9, 8, 7, 6, 5, 4, 3, 2, 0]
+Lista circular --> [9, 8, 7, 6, 5, 4, 3, 2, 0, 0]
+Lista circular --> [9999, 9, 8, 7, 6, 5, 4, 3, 2, 0]
+Lista circular --> [9999, 9, 8, 7, 6, 5, 4, 3, 2, 8888]
+========================================================================================
+				Pilha
+
+//o último a entrar é o primeiro a sair
+
+empilhar (push) elemento
+desempilhar (pop) elemento
+verificar se a pilha está vazia
+
+Pilha --> [31, 28, 49, 69, 17, 93, 94, 93, 51, 97]
+Pilha --> [31, 28, 49, 69, 17, 93, 94, 93, 51, 97, 777]
+Pilha --> [31, 28, 49, 69, 17, 93, 94, 93, 51, 97]
+Pilha --> [31, 28, 49, 69, 17, 93, 94, 93, 51]
+Pilha --> [31, 28, 49, 69, 17, 93, 94, 93, 51, 888]
+==========================================================================================
+				Fila de prioridades
+
+//o primeiro a entrar é o primeiro a sair
+
+enfileirar (enqueue) elemento
+desenfileirar (dequeue) elemento
+verificar se a fila está vazia
+
+Fila --> [70, 81, 98, 62, 79, 36, 77, 29, 32, 92]
+Fila --> [70, 81, 98, 62, 79, 36, 77, 29, 32, 92, 777]
+Fila --> [81, 98, 62, 79, 36, 77, 29, 32, 92, 777]
+Fila --> [98, 62, 79, 36, 77, 29, 32, 92, 777]
+Fila --> [98, 62, 79, 36, 77, 29, 32, 92, 777, 888]
+============================================================================================
+				Fila circular
+
+//o primeiro a entrar é o primeiro a sair, mas ocorre o rearranjo dos elementos
+
+enfileirar (enqueue) elemento
+desenfileirar (dequeue) elemento
+verificar se a fila está vazia
+verificar se a fila está cheia
+
+Fila circular --> [23, 21, 51, 48, 25, 82, 40, 87, 88, 85, 0, 0]
+Fila circular --> [23, 21, 51, 48, 25, 82, 40, 87, 88, 85, 777, 0]
+Fila circular --> [21, 51, 48, 25, 82, 40, 87, 88, 85, 777, 0, 0]
+Fila circular --> [51, 48, 25, 82, 40, 87, 88, 85, 777, 0, 0, 0]
+Fila circular --> [51, 48, 25, 82, 40, 87, 88, 85, 777, 888, 0, 0]
+============================================================================================
+				Lista ligada
+
+//lista com alocação dinâmica de memória
+
+adicionar no início
+adicionar em uma posição específica
+adicionar no fim
+remover do início
+remover de uma posição específica
+remover do fim
+ordenar elementos
+verificar se a lista está vazia
+
+Lista ligada --> 79 <--> 27 <--> 47 <--> 84 <--> 50 <--> null
+Lista ligada --> 79 <--> 27 <--> 47 <--> 84 <--> 50 <--> 777 <--> null
+Lista ligada --> 27 <--> 47 <--> 84 <--> 50 <--> 777 <--> null
+Lista ligada --> 27 <--> 47 <--> 50 <--> 777 <--> null
+Lista ligada --> 27 <--> 47 <--> 50 <--> 999 <--> 777 <--> null
+============================================================================================
+				Lista duplamente ligada
+
+//semelhante a lista ligada, mas cada elemento aponta para o anterior e para o próximo
+
+adicionar no início
+adicionar em uma posição específica
+adicionar no fim
+remover do início
+remover de uma posição específica
+remover do fim
+ordenar elementos
+verificar se a lista está vazia
+
+Lista duplamente ligada --> null <--> 79 <--> 27 <--> 47 <--> 84 <--> 50 <--> null
+Lista duplamente ligada --> null <--> 79 <--> 27 <--> 47 <--> 84 <--> 50 <--> 777 <--> null
+Lista duplamente ligada --> null <--> 27 <--> 47 <--> 84 <--> 50 <--> 777 <--> null
+Lista duplamente ligada --> null <--> 27 <--> 47 <--> 50 <--> 777 <--> null
+Lista duplamente ligada --> null <--> 27 <--> 47 <--> 50 <--> 999 <--> 777 <--> null

@@ -4,7 +4,7 @@
  * Data: 12/03/2020 
  */
 
-package alocacao_dinamica;
+package estruturas;
 
 public class PilhaDinamica <T> {
 	

@@ -14,14 +14,14 @@ public class Lista03_03 {
 		Random r = new Random();
 		PilhaDinamica<Integer> pd = new PilhaDinamica<Integer>();
 		for (int i = 0; i < 10; i++) {
-			pd.enqueue(r.nextInt(99) + 1);
+			pd.push(r.nextInt(99) + 1);
 		}
 		pd.mostraPilha();
-		pd.dequeue();
+		pd.pop();
 		pd.mostraPilha();
-		pd.dequeue();
+		pd.pop();
 		pd.mostraPilha();
-		pd.enqueue(99);
+		pd.push(99);
 		pd.mostraPilha();
 	}
 

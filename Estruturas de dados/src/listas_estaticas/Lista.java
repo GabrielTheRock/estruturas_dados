@@ -139,6 +139,6 @@ class Lista {
 	}
 
 	public void mostraLista() {
-		System.out.println("Lista --> " + Arrays.toString(dados));
+		System.out.println("Lista estática --> " + Arrays.toString(dados));
 	}
 }
